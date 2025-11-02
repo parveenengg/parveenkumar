@@ -169,6 +169,9 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
 
+    // Check if modifier keys are pressed (Cmd/Ctrl/Shift/Alt)
+    const hasModifier = e.metaKey || e.ctrlKey || e.shiftKey || e.altKey;
+
     // Convert key to lowercase for case-insensitive matching
     const key = e.key.toLowerCase();
 
@@ -210,12 +213,15 @@ document.addEventListener('DOMContentLoaded', function() {
         break;
 
       case 'r':
-        // Open Resume PDF in new tab
-        e.preventDefault();
-        const resumeLink = document.querySelector('.resume-link');
-        if (resumeLink && resumeLink.href) {
-          window.open(resumeLink.href, '_blank');
+        // Only open Resume if no modifier keys are pressed (allow Cmd+R/Ctrl+R for reload)
+        if (!hasModifier) {
+          e.preventDefault();
+          const resumeLink = document.querySelector('.resume-link');
+          if (resumeLink && resumeLink.href) {
+            window.open(resumeLink.href, '_blank');
+          }
         }
+        // If modifier is pressed, let browser handle it (for reload, etc.)
         break;
     }
   });
