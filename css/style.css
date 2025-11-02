@@ -137,6 +137,13 @@ body {
   }
 }
 
+/* Ensure menu toggle is visible on mobile/tablet */
+@media (max-width: 1199px) {
+  .menu-toggle {
+    display: flex !important;
+  }
+}
+
 .icon-link {
   color: var(--text-primary);
   text-decoration: none;
