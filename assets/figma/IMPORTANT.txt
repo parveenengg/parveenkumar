@@ -1,0 +1,29 @@
+⚠️  VIEW-ONLY PROTECTION ⚠️
+
+This directory contains protected Figma files.
+
+PROTECTION STATUS:
+- Files are set to READ-ONLY (444 permissions)
+- Cannot be edited without changing permissions first
+- Cannot be deleted without changing permissions first
+
+TO VIEW:
+1. Open Figma Desktop app
+2. File → Open → Select TS00001.fig
+3. Or upload to Figma.com and open in browser
+
+TO TEMPORARILY EDIT (if needed):
+1. Open terminal
+2. Run: chmod 644 TS00001.fig
+3. Make your changes
+4. Run protection script again: ../protect-figma-files.sh
+
+TO RESTORE PROTECTION:
+- Run: ../protect-figma-files.sh
+- Or manually: chmod 444 TS00001.fig
+
+IMPORTANT:
+- Always create a copy before editing
+- Do not remove these protection files
+- Contact administrator if you need to modify files
+

@@ -1,0 +1,14 @@
+# Figma files are protected - tracked but not modified
+# If you need to edit, create a copy first
+# !assets/figma/*.fig
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

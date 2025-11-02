@@ -1,0 +1,80 @@
+/* Custom Cursor Styles - Glowing Sphere */
+* {
+  cursor: none !important;
+}
+
+.custom-cursor {
+  position: fixed;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #4a4a4b, #323233);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out, width 0.2s ease-out, height 0.2s ease-out;
+  
+  /* Multi-layer glow effect for sphere appearance */
+  box-shadow: 
+    0 0 8px rgba(50, 50, 51, 0.8),
+    0 0 16px rgba(50, 50, 51, 0.6),
+    0 0 24px rgba(50, 50, 51, 0.4),
+    0 0 32px rgba(50, 50, 51, 0.3),
+    0 0 40px rgba(50, 50, 51, 0.2),
+    inset 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.custom-cursor.hover {
+  width: 24px;
+  height: 24px;
+  transform: translate(-50%, -50%) scale(1);
+  box-shadow: 
+    0 0 12px rgba(50, 50, 51, 1),
+    0 0 24px rgba(50, 50, 51, 0.8),
+    0 0 36px rgba(50, 50, 51, 0.6),
+    0 0 48px rgba(50, 50, 51, 0.4),
+    0 0 60px rgba(50, 50, 51, 0.3),
+    inset 0 0 12px rgba(255, 255, 255, 0.15);
+}
+
+/* Pulsing animation for glow effect */
+@keyframes cursorGlow {
+  0%, 100% {
+    box-shadow: 
+      0 0 8px rgba(50, 50, 51, 0.8),
+      0 0 16px rgba(50, 50, 51, 0.6),
+      0 0 24px rgba(50, 50, 51, 0.4),
+      0 0 32px rgba(50, 50, 51, 0.3),
+      0 0 40px rgba(50, 50, 51, 0.2),
+      inset 0 0 8px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 0 12px rgba(50, 50, 51, 0.9),
+      0 0 20px rgba(50, 50, 51, 0.7),
+      0 0 28px rgba(50, 50, 51, 0.5),
+      0 0 36px rgba(50, 50, 51, 0.4),
+      0 0 44px rgba(50, 50, 51, 0.3),
+      inset 0 0 10px rgba(255, 255, 255, 0.12);
+  }
+}
+
+.custom-cursor {
+  animation: cursorGlow 2s ease-in-out infinite;
+}
+
+.custom-cursor.hover {
+  animation: none;
+}
+
+/* Hide cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  * {
+    cursor: auto !important;
+  }
+  
+  .custom-cursor {
+    display: none;
+  }
+}
+
