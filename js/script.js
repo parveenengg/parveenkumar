@@ -170,58 +170,60 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Check if modifier keys are pressed (Cmd/Ctrl/Shift/Alt)
+    // If modifiers are pressed, let browser handle default shortcuts (Cmd+C, Cmd+R, etc.)
     const hasModifier = e.metaKey || e.ctrlKey || e.shiftKey || e.altKey;
+    
+    if (hasModifier) {
+      return; // Allow all browser default shortcuts when modifiers are pressed
+    }
 
     // Convert key to lowercase for case-insensitive matching
     const key = e.key.toLowerCase();
 
     switch(key) {
       case 'c':
-        // Copy email to clipboard
+        // Copy email to clipboard (only when no modifiers)
         e.preventDefault();
         copyEmailToClipboard();
         break;
 
       case 'l':
-        // Go to LinkedIn
+        // Go to LinkedIn (only when no modifiers)
         e.preventDefault();
         window.open('https://www.linkedin.com/in/parveenkumar--/', '_blank');
         break;
 
       case 'g':
-        // Go to GitHub
+        // Go to GitHub (only when no modifiers)
         e.preventDefault();
         window.open('https://github.com/parveenengg', '_blank');
         break;
 
       case 'i':
-        // Open Instagram
+        // Open Instagram (only when no modifiers)
         e.preventDefault();
         window.open('https://www.instagram.com/iamparveenrabari/', '_blank');
         break;
 
       case 'y':
-        // Go to YouTube
+        // Go to YouTube (only when no modifiers)
         e.preventDefault();
         window.open('https://www.youtube.com/@Parveen_Makwana', '_blank');
         break;
 
       case 'm':
-        // Open email client
+        // Open email client (only when no modifiers)
         e.preventDefault();
         window.location.href = 'mailto:parveenmakwana02@gmail.com';
         break;
 
       case 'r':
-        // Only open Resume if no modifier keys are pressed (allow Cmd+R/Ctrl+R for reload)
-        if (!hasModifier) {
-          e.preventDefault();
-          const resumeLink = document.querySelector('.resume-link');
-          if (resumeLink && resumeLink.href) {
-            window.open(resumeLink.href, '_blank');
-          }
+        // Open Resume PDF in new tab (only when no modifiers)
+        e.preventDefault();
+        const resumeLink = document.querySelector('.resume-link');
+        if (resumeLink && resumeLink.href) {
+          window.open(resumeLink.href, '_blank');
         }
-        // If modifier is pressed, let browser handle it (for reload, etc.)
         break;
     }
   });
