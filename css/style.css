@@ -753,6 +753,11 @@ body {
   color: white;
 }
 
+.project-logo-wrapper.teal {
+  background-color: #14b8a6;
+  color: white;
+}
+
 .project-identity {
   flex: 1;
 }
